@@ -29,6 +29,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         basicSetup();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString("result", result.getText().toString());
+        outState.putString("solution", solution.getText().toString());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle inState) {
+        super.onRestoreInstanceState(inState);
+        result.setText(inState.getString("result"));
+        solution.setText(inState.getString("solution"));
+    }
+
     private void assingAdvancedButtons() {
         assignId(R.id.button_sinus);
         assignId(R.id.button_cosinus);
@@ -65,22 +79,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assignId(R.id.button_0);
         assignId(R.id.button_dot);
         assignId(R.id.button_equals);
-    }
-
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig)
-    {
-        super.onConfigurationChanged(newConfig);
-
-        int orientation = newConfig.orientation;
-        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            setContentView(R.layout.basic_calc);
-        }
-        else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setContentView(R.layout.advanced_calc);
-            assingAdvancedButtons();
-        }
-        basicSetup();
     }
 
     private void basicSetup() {
