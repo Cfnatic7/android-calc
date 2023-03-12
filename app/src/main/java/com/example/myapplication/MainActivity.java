@@ -1,7 +1,9 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import org.mozilla.javascript.Context;
@@ -16,11 +18,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MaterialButton buttonC, buttonOpenBracket, buttonCloseBracket, buttonDivide,
             buttonSeven, buttonEight, buttonNine, buttonMultiply, buttonFour,
             buttonFive, buttonSix, buttonPlus, buttonOne, buttonTwo, buttonThree,
-            buttonMinus, buttonAllClear, buttonZero, buttonDot, buttonEquals;
+            buttonMinus, buttonAllClear, buttonZero, buttonDot, buttonEquals, buttonSinus,
+            buttonCosinus, buttonTangens, buttonNaturalLog, buttonPowerOfTwo, buttonSquareRoot,
+            buttonPower, buttonLogarithm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // In landscape
+        } else {
+            // In portrait
+        }
         setContentView(R.layout.basic_calc);
         result = findViewById(R.id.result_text_view);
         solution = findViewById(R.id.solution_text_view);
@@ -49,6 +59,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assignId(R.id.button_0);
         assignId(R.id.button_dot);
         assignId(R.id.button_equals);
+
+        assignId(R.id.button_sinus);
+        assignId(R.id.button_cosinus);
+        assignId(R.id.button_tangens);
+        assignId(R.id.button_natural_log);
+        assignId(R.id.button_power_of_two);
+        assignId(R.id.button_square_root);
+        assignId(R.id.button_power);
+        assignId(R.id.button_logarithm);
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig)
+    {
+        super.onConfigurationChanged(newConfig);
+
+        int orientation = newConfig.orientation;
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            setContentView(R.layout.basic_calc);
+        }
+        else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setContentView(R.layout.advanced_calc);
+        }
     }
 
     void assignId(int id) {
