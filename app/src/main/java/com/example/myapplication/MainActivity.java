@@ -137,8 +137,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (buttonText.equalsIgnoreCase("log")) {
             dataToCalculate = dataToCalculate + " log";
         }
-        else if (buttonText.equalsIgnoreCase("c") && dataToCalculate.length() > 0) {
-            dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
+        else if (buttonText.equalsIgnoreCase("c")) {
+            if (dataToCalculate.length() > 0) {
+                dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
+            }
+
         } else {
             dataToCalculate += buttonText;
         }

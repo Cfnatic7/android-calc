@@ -30,7 +30,7 @@
         android:text="@string/zero"
         android:textAlignment="textEnd"
         android:textColor="@color/black"
-        android:textSize="32sp" />
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,8 +48,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -60,8 +60,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -72,8 +72,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -84,8 +84,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -96,8 +96,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -108,8 +108,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -120,8 +120,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -132,8 +132,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -151,8 +151,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -163,8 +163,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -175,8 +175,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -187,8 +187,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -199,8 +199,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -218,8 +218,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -230,8 +230,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -242,8 +242,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -254,8 +254,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -266,8 +266,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -285,8 +285,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -297,8 +297,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -309,8 +309,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -321,8 +321,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -333,8 +333,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -352,8 +352,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -364,8 +364,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -376,8 +376,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -388,8 +388,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
@@ -400,8 +400,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_weight="0.75"
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
