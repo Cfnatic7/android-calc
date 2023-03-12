@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="basic">basic</string>
+    <string name="advanced">advanced</string>
+    <string name="open_bracket">(</string>
+    <string name="close_bracket">)</string>
+    <string name="clear">C</string>
+    <string name="divide">/</string>
 </resources>

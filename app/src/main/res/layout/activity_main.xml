@@ -10,15 +10,15 @@
         android:id="@+id/basic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="basic"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="433dp" />
+        android:text="@string/basic"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="494dp" />
 
     <Button
         android:id="@+id/advanced"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="advanced"
-        tools:layout_editor_absoluteX="158dp"
+        android:text="@string/advanced"
+        tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="211dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

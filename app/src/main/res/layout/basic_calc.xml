@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:layout_margin="12dp"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:id="@+id/button_clear"
+            android:text="@string/clear">
+        </com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:layout_margin="12dp"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:id="@+id/button_open_bracket"
+            android:text="@string/open_bracket">
+        </com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:layout_margin="12dp"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:id="@+id/button_close_bracket"
+            android:text="@string/close_bracket">
+        </com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:layout_margin="12dp"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:id="@+id/button_divide"
+            android:text="@string/divide">
+        </com.google.android.material.button.MaterialButton>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
