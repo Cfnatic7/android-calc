@@ -103,7 +103,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             solution.setText(result.getText());
             return;
         }
-        if (buttonText.equalsIgnoreCase("c")) {
+        if (buttonText.equalsIgnoreCase("sin")) {
+            dataToCalculate = "sin(" + dataToCalculate + ")";
+        }
+        else if (buttonText.equalsIgnoreCase("cos")) {
+            dataToCalculate = "cos(" + dataToCalculate + ")";
+        }
+        else if (buttonText.equalsIgnoreCase("tan")) {
+            dataToCalculate = "tan(" + dataToCalculate + ")";
+        }
+        else if (buttonText.equalsIgnoreCase("ln")) {
+            dataToCalculate = "ln(" + dataToCalculate + ")";
+        }
+        else if (buttonText.equalsIgnoreCase("x^2")) {
+            dataToCalculate = "(" + dataToCalculate + ")^2";
+        }
+        else if (buttonText.equalsIgnoreCase("sqrt")) {
+            dataToCalculate = "(" + dataToCalculate + ")^(1/2)";
+        }
+        else if (buttonText.equalsIgnoreCase("x^y")) {
+            dataToCalculate = "(" + dataToCalculate + ")^";
+        }
+        else if (buttonText.equalsIgnoreCase("log")) {
+            dataToCalculate = "log(" + dataToCalculate + ")";
+        }
+        else if (buttonText.equalsIgnoreCase("c")) {
             dataToCalculate = dataToCalculate.substring(0, databaseList().length - 1);
         } else {
             dataToCalculate += buttonText;
