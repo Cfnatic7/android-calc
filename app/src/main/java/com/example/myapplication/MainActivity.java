@@ -25,11 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         int orientation = getResources().getConfiguration().orientation;
-        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            // In landscape
-        } else {
-            // In portrait
-        }
+
         setContentView(R.layout.basic_calc);
         result = findViewById(R.id.result_text_view);
         solution = findViewById(R.id.solution_text_view);
@@ -59,14 +55,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assignId(R.id.button_dot);
         assignId(R.id.button_equals);
 
-        assignId(R.id.button_sinus);
-        assignId(R.id.button_cosinus);
-        assignId(R.id.button_tangens);
-        assignId(R.id.button_natural_log);
-        assignId(R.id.button_power_of_two);
-        assignId(R.id.button_square_root);
-        assignId(R.id.button_power);
-        assignId(R.id.button_logarithm);
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            assignId(R.id.button_sinus);
+            assignId(R.id.button_cosinus);
+            assignId(R.id.button_tangens);
+            assignId(R.id.button_natural_log);
+            assignId(R.id.button_power_of_two);
+            assignId(R.id.button_square_root);
+            assignId(R.id.button_power);
+            assignId(R.id.button_logarithm);
+        }
     }
 
     @Override
@@ -80,6 +78,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             setContentView(R.layout.advanced_calc);
+            assignId(R.id.button_sinus);
+            assignId(R.id.button_cosinus);
+            assignId(R.id.button_tangens);
+            assignId(R.id.button_natural_log);
+            assignId(R.id.button_power_of_two);
+            assignId(R.id.button_square_root);
+            assignId(R.id.button_power);
+            assignId(R.id.button_logarithm);
         }
     }
 
@@ -127,8 +133,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (buttonText.equalsIgnoreCase("log")) {
             dataToCalculate = "log(" + dataToCalculate + ")";
         }
-        else if (buttonText.equalsIgnoreCase("c")) {
-            dataToCalculate = dataToCalculate.substring(0, databaseList().length - 1);
+        else if (buttonText.equalsIgnoreCase("c") && dataToCalculate.length() > 0) {
+            dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
         } else {
             dataToCalculate += buttonText;
         }
