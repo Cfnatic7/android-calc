@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/buttons_layout">
+        android:id="@+id/buttons_layout"
+        android:layout_alignParentBottom="true">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -118,8 +119,173 @@
             </com.google.android.material.button.MaterialButton>
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_4"
+                android:text="@string/four"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_5"
+                android:text="@string/five"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_6"
+                android:text="@string/six"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_plus"
+                android:text="@string/plus"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_1"
+                android:text="@string/one"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_2"
+                android:text="@string/two"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_3"
+                android:text="@string/three"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_minus"
+                android:text="@string/minus"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_ac"
+                android:text="@string/all_clear"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_0"
+                android:text="@string/zero"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_dot"
+                android:text="@string/dot"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:textSize="32sp"
+                android:textColor="@color/white"
+                android:id="@+id/button_equals"
+                android:text="@string/equals"
+                android:backgroundTint="#0CDC94">
+            </com.google.android.material.button.MaterialButton>
+
+        </LinearLayout>
     </LinearLayout>
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
