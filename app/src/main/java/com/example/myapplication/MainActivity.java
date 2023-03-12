@@ -14,22 +14,33 @@ import com.google.android.material.button.MaterialButton;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView result, solution;
-    MaterialButton buttonC, buttonOpenBracket, buttonCloseBracket, buttonDivide,
-            buttonSeven, buttonEight, buttonNine, buttonMultiply, buttonFour,
-            buttonFive, buttonSix, buttonPlus, buttonOne, buttonTwo, buttonThree,
-            buttonMinus, buttonAllClear, buttonZero, buttonDot, buttonEquals, buttonSinus,
-            buttonCosinus, buttonTangens, buttonNaturalLog, buttonPowerOfTwo, buttonSquareRoot,
-            buttonPower, buttonLogarithm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         int orientation = getResources().getConfiguration().orientation;
+        if (Configuration.ORIENTATION_PORTRAIT == orientation) {
+            setContentView(R.layout.basic_calc);
+        }
+        else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setContentView(R.layout.advanced_calc);
+            assingAdvancedButtons();
+        }
+        basicSetup();
+    }
 
-        setContentView(R.layout.basic_calc);
-        result = findViewById(R.id.result_text_view);
-        solution = findViewById(R.id.solution_text_view);
+    private void assingAdvancedButtons() {
+        assignId(R.id.button_sinus);
+        assignId(R.id.button_cosinus);
+        assignId(R.id.button_tangens);
+        assignId(R.id.button_natural_log);
+        assignId(R.id.button_power_of_two);
+        assignId(R.id.button_square_root);
+        assignId(R.id.button_power);
+        assignId(R.id.button_logarithm);
+    }
 
+    private void assignBasicButtons() {
         assignId(R.id.button_clear);
         assignId(R.id.button_open_bracket);
         assignId(R.id.button_close_bracket);
@@ -54,17 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assignId(R.id.button_0);
         assignId(R.id.button_dot);
         assignId(R.id.button_equals);
-
-        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            assignId(R.id.button_sinus);
-            assignId(R.id.button_cosinus);
-            assignId(R.id.button_tangens);
-            assignId(R.id.button_natural_log);
-            assignId(R.id.button_power_of_two);
-            assignId(R.id.button_square_root);
-            assignId(R.id.button_power);
-            assignId(R.id.button_logarithm);
-        }
     }
 
     @Override
@@ -78,15 +78,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             setContentView(R.layout.advanced_calc);
-            assignId(R.id.button_sinus);
-            assignId(R.id.button_cosinus);
-            assignId(R.id.button_tangens);
-            assignId(R.id.button_natural_log);
-            assignId(R.id.button_power_of_two);
-            assignId(R.id.button_square_root);
-            assignId(R.id.button_power);
-            assignId(R.id.button_logarithm);
+            assingAdvancedButtons();
         }
+        basicSetup();
+    }
+
+    private void basicSetup() {
+        assignBasicButtons();
+        result = findViewById(R.id.result_text_view);
+        solution = findViewById(R.id.solution_text_view);
     }
 
     void assignId(int id) {
@@ -100,6 +100,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String buttonText = button.getText().toString();
         String dataToCalculate = solution.getText().toString();
 
+        if (result.getText().toString().equalsIgnoreCase("0")) {
+            result.setText("0");
+        }
+
         if (buttonText.equalsIgnoreCase("ac")) {
             solution.setText("");
             result.setText("0");
@@ -110,28 +114,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         if (buttonText.equalsIgnoreCase("sin")) {
-            dataToCalculate = "sin(" + dataToCalculate + ")";
+            dataToCalculate = dataToCalculate + " sin";
         }
         else if (buttonText.equalsIgnoreCase("cos")) {
-            dataToCalculate = "cos(" + dataToCalculate + ")";
+            dataToCalculate = dataToCalculate + " cos";
         }
         else if (buttonText.equalsIgnoreCase("tan")) {
-            dataToCalculate = "tan(" + dataToCalculate + ")";
+            dataToCalculate = dataToCalculate + " tan";
         }
         else if (buttonText.equalsIgnoreCase("ln")) {
-            dataToCalculate = "ln(" + dataToCalculate + ")";
+            dataToCalculate = dataToCalculate + " ln";
         }
         else if (buttonText.equalsIgnoreCase("x^2")) {
-            dataToCalculate = "(" + dataToCalculate + ")^2";
+            dataToCalculate = dataToCalculate + "^2";
         }
         else if (buttonText.equalsIgnoreCase("sqrt")) {
-            dataToCalculate = "(" + dataToCalculate + ")^(1/2)";
+            dataToCalculate = dataToCalculate + "^(1/2)";
         }
         else if (buttonText.equalsIgnoreCase("x^y")) {
-            dataToCalculate = "(" + dataToCalculate + ")^";
+            dataToCalculate = dataToCalculate + "^";
         }
         else if (buttonText.equalsIgnoreCase("log")) {
-            dataToCalculate = "log(" + dataToCalculate + ")";
+            dataToCalculate = dataToCalculate + " log";
         }
         else if (buttonText.equalsIgnoreCase("c") && dataToCalculate.length() > 0) {
             dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
@@ -151,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             DoubleEvaluator eval = new DoubleEvaluator();
             String finalResult =  eval.evaluate(data).toString();
             if (finalResult.endsWith(".0")) finalResult =  finalResult.replace(".0", "");
+            if (finalResult.length() > 7) finalResult = finalResult.substring(0, 7);
             return finalResult;
         } catch(Exception e) {
             return "Error";
