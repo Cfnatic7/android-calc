@@ -24,7 +24,7 @@
                 android:textColor="@color/white"
                 android:id="@+id/button_clear"
                 android:text="@string/clear"
-                android:backgroundTint="#0CDC94">
+                android:backgroundTint="#DC0C0C">
             </com.google.android.material.button.MaterialButton>
 
             <com.google.android.material.button.MaterialButton
@@ -60,7 +60,7 @@
                 android:textColor="@color/white"
                 android:id="@+id/button_divide"
                 android:text="@string/divide"
-                android:backgroundTint="#0CDC94">
+                android:backgroundTint="#E19410">
             </com.google.android.material.button.MaterialButton>
 
         </LinearLayout>
@@ -115,7 +115,7 @@
                 android:textColor="@color/white"
                 android:id="@+id/button_multiply"
                 android:text="@string/multiply"
-                android:backgroundTint="#0CDC94">
+                android:backgroundTint="#E19410">
             </com.google.android.material.button.MaterialButton>
 
         </LinearLayout>
@@ -170,7 +170,7 @@
                 android:textColor="@color/white"
                 android:id="@+id/button_plus"
                 android:text="@string/plus"
-                android:backgroundTint="#0CDC94">
+                android:backgroundTint="#E19410">
             </com.google.android.material.button.MaterialButton>
 
         </LinearLayout>
@@ -225,7 +225,7 @@
                 android:textColor="@color/white"
                 android:id="@+id/button_minus"
                 android:text="@string/minus"
-                android:backgroundTint="#0CDC94">
+                android:backgroundTint="#E19410">
             </com.google.android.material.button.MaterialButton>
 
         </LinearLayout>
@@ -244,7 +244,7 @@
                 android:textColor="@color/white"
                 android:id="@+id/button_ac"
                 android:text="@string/all_clear"
-                android:backgroundTint="#0CDC94">
+                android:backgroundTint="#DC0C0C">
             </com.google.android.material.button.MaterialButton>
 
             <com.google.android.material.button.MaterialButton
@@ -280,7 +280,7 @@
                 android:textColor="@color/white"
                 android:id="@+id/button_equals"
                 android:text="@string/equals"
-                android:backgroundTint="#0CDC94">
+                android:backgroundTint="#E19410">
             </com.google.android.material.button.MaterialButton>
 
         </LinearLayout>
