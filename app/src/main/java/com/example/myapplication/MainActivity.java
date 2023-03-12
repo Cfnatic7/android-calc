@@ -4,7 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.Scriptable;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
@@ -59,6 +60,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         MaterialButton button = (MaterialButton) view;
         String buttonText = button.getText().toString();
-        solution.setText(buttonText);
+        String dataToCalculate = solution.getText().toString();
+
+        if (buttonText.equalsIgnoreCase("ac")) {
+            solution.setText("");
+            result.setText("0");
+            return;
+        }
+        if (buttonText.equals("=")) {
+            solution.setText(result.getText());
+            return;
+        }
+        if (buttonText.equalsIgnoreCase("c")) {
+            dataToCalculate = dataToCalculate.substring(0, databaseList().length - 1);
+        } else {
+            dataToCalculate += buttonText;
+        }
+        solution.setText(dataToCalculate);
+
+        String finalResult = getResult(dataToCalculate);
+        if (!finalResult.equals("Error")) {
+            result.setText(finalResult);
+        }
+    }
+
+    String getResult(String data) {
+        try {
+            Context context = Context.enter();
+            context.setOptimizationLevel(-1);
+            Scriptable scriptable = context.initStandardObjects();
+            String finalResult =  context
+                    .evaluateString(scriptable, data, "Javascript", 1, null)
+                    .toString();
+            if (finalResult.endsWith(".0")) finalResult =  finalResult.replace(".0", "");
+            return finalResult;
+        } catch(Exception e) {
+            return "Error";
+        }
     }
 }
