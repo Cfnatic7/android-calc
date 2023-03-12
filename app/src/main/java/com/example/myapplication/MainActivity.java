@@ -3,10 +3,12 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fathzer.soft.javaluator.DoubleEvaluator;
 import com.google.android.material.button.MaterialButton;
@@ -148,6 +150,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String finalResult = getResult(dataToCalculate);
         if (!finalResult.equals("Error")) {
             result.setText(finalResult);
+        }
+        else {
+            if (dataToCalculate.matches(".*ln[(][-][0-9]?([0-9]*[.])?[0-9]+[)].*")) {
+                result.setText("NaN");
+            }
+            if (dataToCalculate.matches(".*log[(][-][0-9]?([0-9]*[.])?[0-9]+[)].*")) {
+                result.setText("NaN");
+            }
+            if (dataToCalculate.matches(".*[(][-][0-9]?([0-9]*[.])?[0-9]+[)]\\^[(]1/2[)].*")) {
+                result.setText("NaN");
+            }
         }
     }
 
