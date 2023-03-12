@@ -6,4 +6,8 @@
     <string name="close_bracket">)</string>
     <string name="clear">C</string>
     <string name="divide">/</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="multiply">*</string>
 </resources>
