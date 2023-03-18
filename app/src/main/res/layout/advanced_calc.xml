@@ -89,18 +89,6 @@
                 android:layout_margin="3dp"
                 android:textSize="11sp"
                 android:textColor="@color/white"
-                android:id="@+id/button_close_bracket"
-                android:text="@string/close_bracket"
-                android:backgroundTint="#0CDC94">
-            </com.google.android.material.button.MaterialButton>
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_weight="0.75"
-                android:layout_margin="3dp"
-                android:textSize="11sp"
-                android:textColor="@color/white"
                 android:id="@+id/button_euler_number"
                 android:text="@string/euler_number"
                 android:backgroundTint="#0CDC94">
@@ -143,16 +131,15 @@
             </com.google.android.material.button.MaterialButton>
 
             <com.google.android.material.button.MaterialButton
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_weight="0.75"
-                android:layout_margin="3dp"
-                android:textSize="11sp"
-                android:textColor="@color/white"
                 android:id="@+id/button_square_root"
+                android:layout_width="31dp"
+                android:layout_height="35dp"
+                android:layout_margin="3dp"
+                android:layout_weight="0.75"
+                android:backgroundTint="#E19410"
                 android:text="@string/square_root"
-                android:backgroundTint="#E19410">
-            </com.google.android.material.button.MaterialButton>
+                android:textColor="@color/white"
+                android:textSize="11sp"></com.google.android.material.button.MaterialButton>
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"

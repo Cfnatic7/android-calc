@@ -15,11 +15,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView result, solution;
 
-    private static final List<String> SYMBOLS = List.of("sin", "cos", "ln", "^(1/2)", "sqrt",
+    private static final List<String> SYMBOLS = List.of("sin", "cos", "ln", "^(1/2)",
             "tan", "log", "^", "+", "-", "*", "/", ".", "e", "pi");
 
-    private static final List<String> NON_OPERATORS = List.of("sin", "cos", "ln", "^(1/2)", "sqrt",
+    private static final List<String> NON_OPERATORS = List.of("sin", "cos", "ln", "^(1/2)",
             "tan", "log", "e", "pi");
+
+    private static final List<String> OPERATORS = List.of("^", "+", "-", "*", "/", ".");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,21 +184,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private boolean isSymbolAllowed(String dataToCalculate, String input) {
+    private boolean isSymbolAllowed(String dataToCalculate, String buttonText) {
         boolean dataToCalculateEndsWithSymbol = isInputEndingWithSymbols(dataToCalculate);
 
-        boolean inputEndsWithSymbol = isInputEndingWithSymbols(input);
+        boolean inputEndsWithSymbol = isInputEndingWithSymbols(buttonText);
         if ((dataToCalculate.endsWith("e") || dataToCalculate.endsWith("pi"))
-                && !isInputEndingWithNonOperator(input)) {
+                && isInputEndingWithOperator(buttonText)) {
             return true;
         }
-        else if (!isInputEndingWithNonOperator(dataToCalculate) &&
-                (input.endsWith("e") || input.endsWith("pi"))) {
+        else if (isInputEndingWithOperator(dataToCalculate) &&
+                (buttonText.endsWith("e") || buttonText.endsWith("pi"))) {
             return true;
         }
+        else if ((isInputEndingWithOperator(dataToCalculate) && isInputEndingWithNonOperator(buttonText)) ||
+                (isInputEndingWithNonOperator(dataToCalculate) && isInputEndingWithOperator(buttonText))) {
+            return true;
+        }
+        else if (dataToCalculate.matches(".*[0-9]")
+                && isInputEndingWithNonOperator(buttonText)) {
+            return buttonText.endsWith("^(1/2)");
+        }
+        else if (dataToCalculate.length() == 0 && buttonText.endsWith("^(1/2)")) {
+            return false;
+        }
+        else if (dataToCalculate.endsWith("^(1/2)")
+                && buttonText.endsWith("^(1/2)")) return true;
         return !(dataToCalculateEndsWithSymbol && inputEndsWithSymbol);
     }
-
     private boolean isInputEndingWithSymbols(String input) {
         boolean inputEndsWithSymbol = false;
         for (String symbol: SYMBOLS) {
@@ -217,5 +231,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         return endsWithNonOperator;
+    }
+
+    private boolean isInputEndingWithOperator(String input) {
+        boolean endsWithOperator = false;
+        for (String nonOperator: OPERATORS) {
+            if (input.endsWith(nonOperator)) {
+                endsWithOperator = true;
+                break;
+            }
+        }
+        return endsWithOperator;
     }
 }

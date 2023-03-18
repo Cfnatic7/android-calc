@@ -27,7 +27,7 @@
     <string name="tangens">tan</string>
     <string name="natural_log">ln</string>
     <string name="power_of_two">^2</string>
-    <string name="square_root">sqrt</string>
+    <string name="square_root">^(1/2)</string>
     <string name="power">^</string>
     <string name="logarithm">log</string>
     <string name="euler_number">e</string>
