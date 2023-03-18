@@ -169,7 +169,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (finalResult.length() > 7) finalResult = finalResult.substring(0, 7);
             return finalResult;
         } catch(Exception e) {
-            System.out.println(e.getMessage());
             return "Error";
         }
     }
@@ -187,6 +186,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         boolean dataToCalculateEndsWithSymbol = isInputEndingWithSymbols(dataToCalculate);
 
         boolean inputEndsWithSymbol = isInputEndingWithSymbols(input);
+        if ((dataToCalculate.endsWith("e") || dataToCalculate.endsWith("pi"))
+                && !isInputEndingWithNonOperator(input)) {
+            return true;
+        }
+        else if (!isInputEndingWithNonOperator(dataToCalculate) &&
+                (input.endsWith("e") || input.endsWith("pi"))) {
+            return true;
+        }
         return !(dataToCalculateEndsWithSymbol && inputEndsWithSymbol);
     }
 
