@@ -1,17 +1,15 @@
 package com.example.myapplication;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fathzer.soft.javaluator.DoubleEvaluator;
 import com.google.android.material.button.MaterialButton;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -113,6 +111,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             solution.setText(result.getText());
             return;
         }
+        else if (buttonText.equalsIgnoreCase("sqrt")) {
+            dataToCalculate = dataToCalculate + "^(1/2)";
+        }
+        else if (buttonText.equalsIgnoreCase("x^2")) {
+            dataToCalculate = dataToCalculate + "^2";
+        }
+        else if (buttonText.equalsIgnoreCase("x^y")) {
+            dataToCalculate = dataToCalculate + "^";
+        }
         if (buttonText.equalsIgnoreCase("sin")) {
             dataToCalculate = dataToCalculate + " sin";
         }
@@ -125,25 +132,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (buttonText.equalsIgnoreCase("ln")) {
             dataToCalculate = dataToCalculate + " ln";
         }
-        else if (buttonText.equalsIgnoreCase("x^2")) {
-            dataToCalculate = dataToCalculate + "^2";
-        }
-        else if (buttonText.equalsIgnoreCase("sqrt")) {
-            dataToCalculate = dataToCalculate + "^(1/2)";
-        }
-        else if (buttonText.equalsIgnoreCase("x^y")) {
-            dataToCalculate = dataToCalculate + "^";
-        }
         else if (buttonText.equalsIgnoreCase("log")) {
             dataToCalculate = dataToCalculate + " log";
         }
+
         else if (buttonText.equalsIgnoreCase("c")) {
             if (dataToCalculate.length() > 0) {
                 dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
             }
 
         } else {
-            dataToCalculate += buttonText;
+            if (isSymbolAllowed(dataToCalculate, buttonText)) {
+                dataToCalculate += buttonText;
+            }
         }
         solution.setText(dataToCalculate);
 
@@ -172,7 +173,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (finalResult.length() > 7) finalResult = finalResult.substring(0, 7);
             return finalResult;
         } catch(Exception e) {
+            System.out.println(e.getMessage());
             return "Error";
         }
+    }
+
+    private boolean isStringValidDouble(String input) {
+        try {
+            Double.parseDouble(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    private boolean isSymbolAllowed(String dataToCalculate, String input) {
+        List<String> symbols = List.of("sin", "cos", "ln", "^(1/2)", "sqrt",
+                "tan", "log", "^", "+", "-", "*", "/", ".");
+        boolean dataToCalculateEndsWithSymbol = isInputEndingWithSymbols(dataToCalculate, symbols);
+
+        boolean inputEndsWithSymbol = isInputEndingWithSymbols(input, symbols);
+        return !(dataToCalculateEndsWithSymbol && inputEndsWithSymbol);
+    }
+
+    private boolean isInputEndingWithSymbols(String input, List<String> symbols) {
+        boolean inputEndsWithSymbol = false;
+        for (String symbol: symbols) {
+            if (input.endsWith(symbol)) {
+                inputEndsWithSymbol = true;
+                break;
+            }
+        }
+        return inputEndsWithSymbol;
     }
 }
