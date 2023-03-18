@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final List<String> SYMBOLS = List.of("sin", "cos", "ln", "^(1/2)", "sqrt",
             "tan", "log", "^", "+", "-", "*", "/", ".", "e", "pi");
 
+    private static final List<String> NON_OPERATORS = List.of("sin", "cos", "ln", "^(1/2)", "sqrt",
+            "tan", "log", "e", "pi");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assignId(R.id.button_square_root);
         assignId(R.id.button_power);
         assignId(R.id.button_logarithm);
+        assignId(R.id.button_euler_number);
+        assignId(R.id.button_pi);
     }
 
     private void assignBasicButtons() {
@@ -119,12 +124,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 dataToCalculate += buttonText;
             }
         }
-
+        else if (isStringValidInteger(buttonText)) {
+            if(!isInputEndingWithNonOperator(dataToCalculate)) {
+                dataToCalculate += buttonText;
+            }
+        }
         else if (buttonText.equalsIgnoreCase("c")) {
             if (dataToCalculate.length() > 0) {
                 dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
             }
-
         } else {
             if (isSymbolAllowed(dataToCalculate, buttonText)) {
                 dataToCalculate += buttonText;
@@ -166,9 +174,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private boolean isStringValidDouble(String input) {
+    private boolean isStringValidInteger(String input) {
         try {
-            Double.parseDouble(input);
+            Integer.parseInt(input);
             return true;
         } catch (NumberFormatException e) {
             return false;
@@ -191,5 +199,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         return inputEndsWithSymbol;
+    }
+
+    private boolean isInputEndingWithNonOperator(String input) {
+        boolean endsWithNonOperator = false;
+        for (String nonOperator: NON_OPERATORS) {
+            if (input.endsWith(nonOperator)) {
+                endsWithNonOperator = true;
+                break;
+            }
+        }
+        return endsWithNonOperator;
     }
 }

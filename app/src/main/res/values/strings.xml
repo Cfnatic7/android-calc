@@ -22,7 +22,6 @@
     <string name="minus">-</string>
     <string name="equals">=</string>
     <string name="all_clear">ac</string>
-
     <string name="sinus">sin</string>
     <string name="cosinus">cos</string>
     <string name="tangens">tan</string>
@@ -31,4 +30,6 @@
     <string name="square_root">sqrt</string>
     <string name="power">^</string>
     <string name="logarithm">log</string>
+    <string name="euler_number">e</string>
+    <string name="pi">pi</string>
 </resources>
