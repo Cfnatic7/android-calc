@@ -15,6 +15,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView result, solution;
 
+    private static final List<String> SYMBOLS = List.of("sin", "cos", "ln", "^(1/2)", "sqrt",
+            "tan", "log", "^", "+", "-", "*", "/", ".", "e", "pi");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,29 +114,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             solution.setText(result.getText());
             return;
         }
-        else if (buttonText.equalsIgnoreCase("sqrt")) {
-            dataToCalculate = dataToCalculate + "^(1/2)";
-        }
-        else if (buttonText.equalsIgnoreCase("x^2")) {
-            dataToCalculate = dataToCalculate + "^2";
-        }
-        else if (buttonText.equalsIgnoreCase("x^y")) {
-            dataToCalculate = dataToCalculate + "^";
-        }
-        if (buttonText.equalsIgnoreCase("sin")) {
-            dataToCalculate = dataToCalculate + " sin";
-        }
-        else if (buttonText.equalsIgnoreCase("cos")) {
-            dataToCalculate = dataToCalculate + " cos";
-        }
-        else if (buttonText.equalsIgnoreCase("tan")) {
-            dataToCalculate = dataToCalculate + " tan";
-        }
-        else if (buttonText.equalsIgnoreCase("ln")) {
-            dataToCalculate = dataToCalculate + " ln";
-        }
-        else if (buttonText.equalsIgnoreCase("log")) {
-            dataToCalculate = dataToCalculate + " log";
+        else if (isInputEndingWithSymbols(buttonText)) {
+            if (isSymbolAllowed(dataToCalculate, buttonText)) {
+                dataToCalculate += buttonText;
+            }
         }
 
         else if (buttonText.equalsIgnoreCase("c")) {
@@ -153,15 +137,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             result.setText(finalResult);
         }
         else {
-            if (dataToCalculate.matches(".*ln[(][-][0-9]?([0-9]*[.])?[0-9]+[)].*")) {
-                result.setText("NaN");
-            }
-            if (dataToCalculate.matches(".*log[(][-][0-9]?([0-9]*[.])?[0-9]+[)].*")) {
-                result.setText("NaN");
-            }
-            if (dataToCalculate.matches(".*[(][-][0-9]?([0-9]*[.])?[0-9]+[)]\\^[(]1/2[)].*")) {
-                result.setText("NaN");
-            }
+            handleImpossibleCalculations(dataToCalculate);
+        }
+    }
+
+    private void handleImpossibleCalculations(String dataToCalculate) {
+        if (dataToCalculate.matches(".*ln[(][-][0-9]?([0-9]*[.])?[0-9]+[)].*")) {
+            result.setText("NaN");
+        }
+        if (dataToCalculate.matches(".*log[(][-][0-9]?([0-9]*[.])?[0-9]+[)].*")) {
+            result.setText("NaN");
+        }
+        if (dataToCalculate.matches(".*[(][-][0-9]?([0-9]*[.])?[0-9]+[)]\\^[(]1/2[)].*")) {
+            result.setText("NaN");
         }
     }
 
@@ -188,17 +176,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private boolean isSymbolAllowed(String dataToCalculate, String input) {
-        List<String> symbols = List.of("sin", "cos", "ln", "^(1/2)", "sqrt",
-                "tan", "log", "^", "+", "-", "*", "/", ".");
-        boolean dataToCalculateEndsWithSymbol = isInputEndingWithSymbols(dataToCalculate, symbols);
+        boolean dataToCalculateEndsWithSymbol = isInputEndingWithSymbols(dataToCalculate);
 
-        boolean inputEndsWithSymbol = isInputEndingWithSymbols(input, symbols);
+        boolean inputEndsWithSymbol = isInputEndingWithSymbols(input);
         return !(dataToCalculateEndsWithSymbol && inputEndsWithSymbol);
     }
 
-    private boolean isInputEndingWithSymbols(String input, List<String> symbols) {
+    private boolean isInputEndingWithSymbols(String input) {
         boolean inputEndsWithSymbol = false;
-        for (String symbol: symbols) {
+        for (String symbol: SYMBOLS) {
             if (input.endsWith(symbol)) {
                 inputEndsWithSymbol = true;
                 break;
