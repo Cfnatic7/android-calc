@@ -1,10 +1,13 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fathzer.soft.javaluator.DoubleEvaluator;
 import com.google.android.material.button.MaterialButton;
@@ -143,24 +146,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         solution.setText(dataToCalculate);
 
         String finalResult = getResult(dataToCalculate);
-        if (!finalResult.equals("Error")) {
+        if (!(finalResult.equals("Error")
+                || finalResult.equalsIgnoreCase("infinit")
+                || finalResult.equalsIgnoreCase("nan"))) {
             result.setText(finalResult);
         }
-        else {
-            handleImpossibleCalculations(dataToCalculate);
+        else if (finalResult.equalsIgnoreCase("infinit") ||
+                finalResult.equalsIgnoreCase("nan")) {
+            showBadCalculationToast();
         }
     }
 
-    private void handleImpossibleCalculations(String dataToCalculate) {
-        if (dataToCalculate.matches(".*ln[(][-][0-9]?([0-9]*[.])?[0-9]+[)].*")) {
-            result.setText("NaN");
-        }
-        if (dataToCalculate.matches(".*log[(][-][0-9]?([0-9]*[.])?[0-9]+[)].*")) {
-            result.setText("NaN");
-        }
-        if (dataToCalculate.matches(".*[(][-][0-9]?([0-9]*[.])?[0-9]+[)]\\^[(]1/2[)].*")) {
-            result.setText("NaN");
-        }
+    private void showBadCalculationToast() {
+        Context context = getApplicationContext();
+        CharSequence text = "Impossible calculation!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     String getResult(String data) {
